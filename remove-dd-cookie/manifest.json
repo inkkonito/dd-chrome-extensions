@@ -1,0 +1,19 @@
+{
+"manifest_version": 3,
+"name": "Remove DataDome Cookie",
+"version": "1.0.0",
+"description": "Click the extension icon to delete the 'datadome' cookie for the current tab's site.",
+"permissions": [
+"cookies",
+"tabs"
+],
+"host_permissions": [
+"<all_urls>"
+],
+"action": {
+"default_title": "Remove 'datadome' cookie"
+},
+"background": {
+"service_worker": "background.js"
+}
+}

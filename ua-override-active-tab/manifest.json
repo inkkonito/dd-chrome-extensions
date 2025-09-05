@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "DataDome UA – Active Tab Only",
+  "version": "1.0",
+  "description": "Override the User-Agent header for the currently active tab's origin only.",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": ["*://*/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "UA Override (Active Tab)"
+  }
+}

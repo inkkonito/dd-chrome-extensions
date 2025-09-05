@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>UA Override (Active Tab)</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 12px; width: 360px; }
+    h3 { margin: 10px 0 6px; font-size: 14px; }
+    .group { border:1px solid #ddd; border-radius:10px; padding:10px; margin:10px 0; }
+    button { display:block; width:100%; padding:8px; margin:6px 0; }
+    #origin { font-size:12px; color:#444; word-break: break-all; }
+    small { color:#555; }
+    code { background:#f6f6f6; padding:1px 4px; border-radius:4px; }
+  </style>
+</head>
+<body>
+  <div id="origin">Active tab origin: (detecting…)</div>
+
+  <div class="group">
+    <h3>CAPTCHA</h3>
+    <button id="ua_BLOCKUA">BLOCKUA</button>
+    <button id="ua_BLOCKUA_HARDBLOCK">BLOCKUA-HARDBLOCK</button>
+  </div>
+
+  <div class="group">
+    <h3>DeviceCheck</h3>
+    <button id="ua_DeviceCheckTestUA">DeviceCheckTestUA</button>
+    <button id="ua_DeviceCheckTestUA_BLOCKUA">DeviceCheckTestUA-BLOCKUA</button>
+    <button id="ua_DeviceCheckTestUA_HARDBLOCK">DeviceCheckTestUA-HARDBLOCK</button>
+  </div>
+
+  <div class="group">
+    <h3>HARDBLOCK</h3>
+    <button id="ua_HARDBLOCKUA">HARDBLOCKUA</button>
+    <button id="ua_HARDBLOCK_UA">HARDBLOCK_UA (XHR only)</button>
+  </div>
+
+  <button id="clear">Clear override</button>
+
+  <div class="group">
+    <h3>Expected results</h3>
+    <small>
+      <code>BLOCKUA</code> → CAPTCHA<br>
+      <code>BLOCKUA-HARDBLOCK</code> → CAPTCHA then HARDBLOCK<br>
+      <code>DeviceCheckTestUA</code> → DeviceCheck<br>
+      <code>DeviceCheckTestUA-BLOCKUA</code> → DeviceCheck then CAPTCHA<br>
+      <code>DeviceCheckTestUA-HARDBLOCK</code> → DeviceCheck then HARDBLOCK<br>
+      <code>HARDBLOCKUA</code> → HARDBLOCK<br>
+      <code>HARDBLOCK_UA</code> → HARDBLOCK on <em>XHR on Cross-Domain</em>
+    </small>
+  </div>
+
+  <small>
+    The override applies to the <b>active tab only</b> (scoped by tabId) and only to its <b>current origin</b>.
+    It persists on refresh and same-origin navigation in that tab until you click <b>Clear</b> or close the tab.
+  </small>
+
+  <script src="popup.js"></script>
+</body>
+</html>
