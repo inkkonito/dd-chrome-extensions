@@ -1,19 +1,31 @@
 {
-"manifest_version": 3,
-"name": "Remove DataDome Cookie",
-"version": "1.0.0",
-"description": "Click the extension icon to delete the 'datadome' cookie for the current tab's site.",
-"permissions": [
-"cookies",
-"tabs"
-],
-"host_permissions": [
-"<all_urls>"
-],
-"action": {
-"default_title": "Remove 'datadome' cookie"
-},
-"background": {
-"service_worker": "background.js"
-}
+  "manifest_version": 3,
+  "name": "Remove DataDome Cookie",
+  "version": "1.0",
+  "description": "Removes the datadome cookie for the current active site.",
+  "permissions": [
+    "cookies",
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Remove DataDome Cookie",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  }
 }
